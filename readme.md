@@ -1,1 +1,0 @@
-Skripte für den EDV-Unterricht

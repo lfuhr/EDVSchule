@@ -11,17 +11,15 @@
 | Typsystem            | Dynamisch Strikt    | Dynamisch schwach  | Statisch+Dynamisch Strikt |
 | Immutable            | Ja                  | nein               | möglich                   |
 | Numerische Typen     | int, float, decimal | number             | int, long, double ...     |
-| # Funktionsargumente | strikt              | flexibel           | strikt                    |
+| Argumente            | strikt              | flexibel           | strikt                    |
 | Geordnete Daten      | List, Tupel         | Array              | Array, List               |
 | Properties           | Descriptor Protocol | `get`-Syntax       | manuell                   |
 | Module               | Batteries Included  | Frameworks         | Batteries Included        |
 | Objektorientierung   | möglich             | möglich            | forciert                  |
 |                      |                     |                    |                           |
-| Syntax               |                     |                    |                           |
 | Blöcke               | Einrückung          | {}                 | {}                        |
 | Befehlsende          | Zeilenende          | ; (automatisch)    | ;                         |
 |                      |                     |                    |                           |
-| Einsatz              |                     |                    |                           |
 | Geschwindigkeit      | Langsam (Cpython)   | Schnell (Node)     | Schnell                   |
 | Vorinstalliert       | außer auf Windows   | Im Browser         | Auf Android               |
 | Web-Einsatz          | Backend             | Frondend + Backend | Backend                   |
