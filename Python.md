@@ -8,7 +8,7 @@
 python
 ```
 
-Dort können wir unser ersten Programm `1+2` schreiben. Der Prompt kann mit `ctrl+D` bzw. `ctrl+Z` unter Windows sowie dem Befehl exit() beendet werden.
+Dort können wir unser ersten Programm `1+2` schreiben. Der Prompt kann mit `ctrl+D` bzw. `ctrl+Z Enter` unter Windows sowie dem Befehl exit() beendet werden.
 
 ### Direkt
 
@@ -139,7 +139,25 @@ f.close()
 f = open("demofile2.txt", "r")
 print(f.read())
 ```
-## Module
+## Module und Packages
+### Packages installieren mit *pip*
+
+Pip ist ein beliebter package manager für python. Wenn er installiert ist, dann kann mit 
+
+```
+pip install PACKAGENAME
+```
+
+### Virtualenv verwenden
+
+An der Schule, genauso wie in vielen Firmen ist es nicht erlaubt beliebige Software auf einem Rechner zu installieren. Daher laden wir die Pakete lokal in einer sogenannten *Virtual Environment*. Dazu muss die Software *Virtualenv* installiert sein.
+
+`virtualenv ersteVenv`: Erstellt eine *Virtual Environment*
+
+`ersteVenv\Scripts\activate` bzw. `source venvp1/bin/activate` (nicht Windows): Aktiviert diese, sodass wir Software lokal installieren können
+
+Ist die Virtualenv aktiviert, funktioniert obiger Befehl zur Installation.
+
 ### Module nutzen am Beispiel von
 
 ## Stystemadministration mit Python
