@@ -2,6 +2,8 @@
 
 ## Erste Schritte
 
+---
+
 ### Interactive
 
 ```powershell
@@ -16,7 +18,9 @@ Dort können wir unser ersten Programm `1+2` schreiben. Der Prompt kann mit `ctr
 python -c "print('Hello World')"
 ```
 
-### Skript starten
+---
+
+### Skript ausführen
 
 ```powershell
 python helloworld.py
@@ -24,15 +28,19 @@ python helloworld.py
 
 ## Allgemeine Syntax
 
+---
+
 ### Rechenoperationen
 
 Es gibt die Rechenoperatoren: `+`,  `-`,  `*`,  `/`,  `%` (Modulo),  `**`, (Potenz), `//` (Ganzzahldivision)
 
-1. Was genau macht die Ganzzahldivision `\\`?
+1. Was genau macht die Ganzzahldivision `//`?
 2. Gilt die Regel Punkt vor Strich?
 3. Was passiert, wenn Sie True zu einer Zahl addieren?
 4. Was passiert, wenn Sie die Anzahl der Atome im Universum $10^{80}$ eingeben. Was würde bei Java oder Javascript passieren? Eine Vermutung genügt.
 5. Prüfen Sie den Wert der Variablen `_`. Zu was dient sie?
+
+---
 
 ### Variablen
 
@@ -48,6 +56,7 @@ höhe * breite
 
 Der (dynamische) Typ einer Variable kann mit der Funktion `type()` geprüft werden.
 
+---
 ### Strings
 
 Strings werden mit `"text"`  oder `'text'` angegeben.
