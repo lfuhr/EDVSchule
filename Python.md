@@ -39,12 +39,13 @@ Es gibt die Rechenoperatoren: `+`,  `-`,  `*`,  `/`,  `%` (Modulo),  `**`, (Pote
 3. Was passiert, wenn Sie True zu einer Zahl addieren?
 4. Was passiert, wenn Sie die Anzahl der Atome im Universum $10^{80}$ eingeben. Was würde bei Java oder Javascript passieren? Eine Vermutung genügt.
 5. Prüfen Sie den Wert der Variablen `_`. Zu was dient sie?
+6. Rechnen Sie `1.2 - 1.0 - 0.2` aus. Entspricht das Ergebnis Ihrer Erwartung?
 
 ---
 
 ### Variablen
 
-In Python werden Variablen nicht explizit deklariert. Außerdem wird kein Typ angegeben. Eine Variable selbst hat auch keinen statischen Typ. Lediglich der Inhalt hat einen (dynamischen) Typ.
+In Python werden Variablen nicht explizit deklariert. Außerdem wird kein Typ angegeben. Eine Variable selbst hat auch keinen (statischen) Typ. Lediglich der Inhalt hat einen Typ. Der Typ, des Inhalts wird als dynamischer Typ der Variable bezeichnet.
 
 Eine Zuweisung geschieht analog zu Java.
 
@@ -65,7 +66,7 @@ Strings werden mit `"text"`  oder `'text'` angegeben.
 
 2. Notieren Sie den String  `He doesn't like a 20" bicycle`. Benutzen Sie dazu den Escape-Character der Ihnen aus Java bekannt ist.
 
-3. Sie können mit dreifachen Anführungsstrichen einen String aus mehreren Zeilen erzeugen. Aber wozu ist der `\`? 
+3. Sie können mit dreifachen Anführungsstrichen einen String aus mehreren Zeilen erzeugen. Aber wozu ist der Backslash `\`? 
 	```
    """\
     () ()
@@ -76,15 +77,22 @@ Strings werden mit `"text"`  oder `'text'` angegeben.
    
 4. Können Sie Strings auch mit Zahlen multiplizieren? Wozu könnte das sinnvoll sein?
 
-5. Extrahieren Sie den ersten Buchstaben eines Wortes wie folgt `Python[0]`. Welchen Typ hat ein Buchstabe in Python?
+5. Weisen Sie der Variablen `p` den String `Python`zu.
 
-6. Geben Sie eine negative Zahl als Index an. Was passiert? Was würde in Java passieren. Welchen Vor- und Nachteil hat das Verhalten von Python gegenüber dem von Java?
+6. Extrahieren Sie den ersten Buchstaben eines Wortes wie folgt p[0]`. Welchen Typ hat ein Buchstabe in Python?
 
-7. Benutzen Sie die Funktion `len()` um die Länge eines Strings zu messen.
+7. Geben Sie eine negative Zahl als Index an. Was passiert? Was würde in Java passieren? Welchen Vor- und Nachteil hat das Verhalten von Python gegenüber dem von Java?
 
-8. Wie funktioniert die Syntax `"Python"[1:3]`? Welchen Vorteil hat die vielleicht Gewöhnungsbedürftige Indizierung? Lassen Sie eine der beiden Zahlen weg.
+8. Benutzen Sie die Funktion `len()` um die Länge eines Strings zu messen.
 
-9. Weisen Sie der Variablen `a` einen String zu. Versuchen Sie einen Buchstaben zu ändern. Entwickeln Sie einen Workaround.
+9. Wie funktioniert die Syntax p[1:3]`? Diese Syntax gibt es bei java nicht!
+
+   1. Was fällt Ihnen bei der Angabe des Endes auf? Welchen Vorteil bietet es, dass das Element an der Stelle 3 ausgeschlossen wird
+   2. Wie reagiert der Interpretern, wenn Sie die Zahlen aus Versehen Vertauschen. Nennen Sie einen Vorteil und einen Nachteil, gegenüber einer Fehlermeldung.
+   3. Lassen Sie eine der beiden Zahlen weg. Was passiert dann?
+   4. Kombinieren Sie die Konzepte von Aufgabe 7 und Aufgabe 9. Geben den String `p` vom zweiten bis zum vorletzten Buchstaben aus.
+
+10. Versuchen Sie den ersten Buchstaben von `p` durch ein `C` zu ersetzen. Warum klappt das nicht? Entwickeln Sie einen Workaround.
 
 ### Listen und Tupel
 
@@ -149,6 +157,34 @@ f = open("demofile2.txt", "r")
 print(f.read())
 ```
 ## Module und Packages
+### Pakete Module nutzen am Beispiel von os
+
+```python
+# 1. Paket und dessen Klassen und Variablen aber ohne untergeordnete Module
+# sys als Name registrieren
+import os 
+os.pathsep
+
+# Genau wie oben nur mit anderem Namen
+import os as ospaket
+ospaket.pathsep
+
+# pathsep ist kein Paket. Drum funktioniert das nicht.
+import os.pathsep
+
+# 1. importieret os
+# 2. registriert pathsep als Name (kein zugriff auf os möglich)
+from os import pathsep
+pathsep
+
+# Das Paket os enthält ein modul path
+# 1. importiert os
+# 2. importiert path
+# 3. registriert os als Name
+import os.path
+os.path.join("hallo","welt")
+```
+
 ### Packages installieren mit *pip*
 
 Pip ist ein beliebter package manager für python. Wenn er installiert ist, dann kann mit 
@@ -161,13 +197,23 @@ pip install PACKAGENAME
 
 An der Schule, genauso wie in vielen Firmen ist es nicht erlaubt beliebige Software auf einem Rechner zu installieren. Daher laden wir die Pakete lokal in einer sogenannten *Virtual Environment*. Dazu muss die Software *Virtualenv* installiert sein.
 
-`virtualenv ersteVenv`: Erstellt eine *Virtual Environment*
+`virtualenv ersteVenv`: Erstellt eine *Virtual Environment*.
 
-`ersteVenv\Scripts\activate` bzw. `source venvp1/bin/activate` (nicht Windows): Aktiviert diese, sodass wir Software lokal installieren können
+Achtung: Hier ist nicht klar, welche Python Version verwendet wird. Wenn verschiedene Versionen installiert sind, besser `python3 -m venv ersteVenv` verwenden.
+
+`ersteVenv\Scripts\activate` (Windows) bzw. `source venvp1/bin/activate` (unixoide): Aktiviert diese, sodass wir Software lokal installieren können
 
 Ist die Virtualenv aktiviert, funktioniert obiger Befehl zur Installation.
 
-### Module nutzen am Beispiel von
+### Pakete und Module selbst erstellen
+
+Ein Paket ist im Prinzip ein Ordner und ein Modul ist eine Python Datei. Ein Paket kann eine `__init__.py` enthalten. Diese wird geladen, wenn das paket geladen wird.
+
+#### Aufgabe
+
+1. Erstellen Sie ein Paket mit dem Namen b11lib ...
+2. ... und darin ein (leeres) Modul mit Namen visualization.
+3. Fügen Sie dem Paket(!) eine funkton whatis hinzu, die den Typ und den Inhalt einer Variable ausgibt.
 
 ## Stystemadministration mit Python
 
