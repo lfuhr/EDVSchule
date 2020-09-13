@@ -1,23 +1,42 @@
 <style>
 h2 { color: #080; }
 h4 { color: #777; }
-
 body {counter-reset: h1 h2 h3}
 h1 {counter-reset: h2 h3}
 h2 {counter-reset: h3}
-
 h1:before {counter-increment: h1; content: counter(h1) "\0000a0\0000a0"}
 h2:before {counter-increment: h2; content: counter(h1) "." counter(h2) "\0000a0\0000a0"}
 h3:before {counter-increment: h3; content: counter(h1) "." counter(h2) "." counter(h3) "\0000a0\0000a0"}
 </style>
-
 # Python
 
 ## Erste Schritte
 
----
+### Wir werden Python toll finden!
 
-### Interactive
+Hier können sie lesen wie toll Python ist. http://www.inztitut.de/blog/glossar/python/
+
+Denn Python ist 
+
+- einfach zu erlernen
+- gut lesbarer Code
+- highlevel
+- minimalistisch
+- klar
+- leistungsstark
+- erweiterbar
+- plattformunabhängig
+- interpretiert
+
+Weil Python 3 noch schöner als Python 2 werden sollte, wurde bei der Entwicklung die Kompatibilität vernachlässigt. Wir werden hier im Kurs nur Python 3 besprechen. Es ist möglich Python 2 Code automatisiert in Python 3 Code umzuwandeln.
+
+Im Folgenden werden Methoden vorgestellt um Python-Programme zu starten.
+
+### Interaktiver Modus
+
+Wird python im initeraktiven Modus gestartet, öffnet sich ein Command Line Interface (manchmal Shell, Terminal, Konsole, Prompt, Eingabeauffoderung genannt).
+
+Das CLI ist an dem Prompt `>>>` zu erkennen, der dann erscheint.
 
 ```powershell
 python
@@ -31,30 +50,21 @@ Dort können wir unser ersten Programm `1+2` schreiben. Der Prompt kann mit `ctr
 python -c "print('Hello World')"
 ```
 
----
 
-### Skript ausführen
+1. Warum ist im Interactive Mode keine `print`-Anweisung nötig und im direkten Modus schon?
+2. Ist der Interaktive Modus für Anfänger empfehlenswert?
+
+### Skriptdatei ausführen
 
 ```powershell
 python helloworld.py
 ```
 
+### Python in einer IDE ausführen
+
+Wenn python in einer IDE ausgeführt wird, dann passiert im wesentlichen nichts anderes, als dass die IDE in einer Konsole genau den Befehl vom obigen Abschnitt ausführt.
+
 ## Allgemeine Syntax
-
----
-
-### Rechenoperationen
-
-Es gibt die Rechenoperatoren: `+`,  `-`,  `*`,  `/`,  `%` (Modulo),  `**`, (Potenz), `//` (Ganzzahldivision)
-
-1. Was genau macht die Ganzzahldivision `//`?
-2. Gilt die Regel Punkt vor Strich?
-3. Was passiert, wenn Sie True zu einer Zahl addieren?
-4. Was passiert, wenn Sie die Anzahl der Atome im Universum $10^{80}$ eingeben. Was würde bei Java oder Javascript passieren? Eine Vermutung genügt.
-5. Prüfen Sie den Wert der Variablen `_`. Zu was dient sie?
-6. Rechnen Sie `1.2 - 1.0 - 0.2` aus. Entspricht das Ergebnis Ihrer Erwartung?
-
----
 
 ### Variablen
 
@@ -70,7 +80,20 @@ höhe * breite
 
 Der (dynamische) Typ einer Variable kann mit der Funktion `type()` geprüft werden.
 
----
+![static-dynamic-strong-weak_1529px-1024x766](.Python.md/static-dynamic-strong-weak_1529px-1024x766.png)
+
+### Rechenoperationen
+
+Es gibt die Rechenoperatoren: `+`,  `-`,  `*`,  `/`,  `%` (Modulo),  `**`, (Potenz), `//` (Ganzzahldivision)
+
+1. Was genau macht die Ganzzahldivision `//`?
+   1. Rechnen Sie `-1//2`. Stimmt ihre Aussage aus 1?
+2. Gilt die Regel Punkt vor Strich?
+3. Was passiert, wenn Sie True zu einer Zahl addieren?
+4. Was passiert, wenn Sie die Anzahl der Atome im Universum $10^{80}$ eingeben. Was würde bei Java oder JavaScript passieren? Eine Vermutung genügt.
+5. Prüfen Sie den Wert der Variablen `_`. Zu was dient sie? Ist nur im interaktiven Modus verfügbar?
+6. Rechnen Sie `1.2 - 1.0 - 0.2` aus. Entspricht das Ergebnis Ihrer Erwartung?
+
 ### Strings
 
 Strings werden mit `"text"`  oder `'text'` angegeben.
@@ -92,69 +115,64 @@ Strings werden mit `"text"`  oder `'text'` angegeben.
 
 5. Weisen Sie der Variablen `p` den String `Python`zu.
 
-6. Extrahieren Sie den ersten Buchstaben eines Wortes wie folgt p[0]`. Welchen Typ hat ein Buchstabe in Python?
+6. Extrahieren Sie den ersten Buchstaben eines Wortes wie folgt `p[0]`. Welchen Typ hat ein Buchstabe in Python?
 
 7. Geben Sie eine negative Zahl als Index an. Was passiert? Was würde in Java passieren? Welchen Vor- und Nachteil hat das Verhalten von Python gegenüber dem von Java?
 
 8. Benutzen Sie die Funktion `len()` um die Länge eines Strings zu messen.
 
-9. Wie funktioniert die Syntax p[1:3]`? Diese Syntax gibt es bei java nicht!
+9. Wie funktioniert die Syntax `p[1:3]`? Diese Syntax gibt es bei java nicht.
 
    1. Was fällt Ihnen bei der Angabe des Endes auf? Welchen Vorteil bietet es, dass das Element an der Stelle 3 ausgeschlossen wird
    2. Wie reagiert der Interpretern, wenn Sie die Zahlen aus Versehen Vertauschen. Nennen Sie einen Vorteil und einen Nachteil, gegenüber einer Fehlermeldung.
    3. Lassen Sie eine der beiden Zahlen weg. Was passiert dann?
    4. Kombinieren Sie die Konzepte von Aufgabe 7 und Aufgabe 9. Geben den String `p` vom zweiten bis zum vorletzten Buchstaben aus.
 
-10. Versuchen Sie den ersten Buchstaben von `p` durch ein `C` zu ersetzen. Warum klappt das nicht? Entwickeln Sie einen Workaround.
+10. Versuchen Sie den ersten Buchstaben der Variablen `p` durch ein `C` zu ersetzen. Warum klappt das nicht? Entwickeln Sie einen Workaround.
 
 ### Listen und Tupel
 
 
-
-
-
-
-
-
-## Einordnung und Abgrenzung
+## Einordnung und Abgrenzung von Python
 
 Python ist eine sehr flexible Sprache für Rapid Application Development. Viele würden sie als „schön“ bezeichnen.  
 
 ### Unterschiede von Python zu Javascript und Java 
 
 
-| Aspekt               | Python              | Javascript         | Java                  |
-| -------------------- | ------------------- | ------------------ | --------------------- |
-| Typsystem            | Dynamisch Strikt    | Dynamisch schwach  | Statisch Strikt       |
-| Immutable            | Ja                  | nein               | möglich               |
-| Numerische Typen     | int, float, decimal | number             | int, long, double ... |
-| Argumente            | strikt              | flexibel           | strikt                |
-| Geordnete Daten      | List, Tupel         | Array              | Array, List           |
-| Properties           | Descriptor Protocol | `get`-Syntax       | manuell               |
-| Module               | Batteries Included  | Frameworks         | Batteries Included    |
-| Objektorientierung   | möglich             | möglich            | forciert              |
-|                      |                     |                    |                       |
-| Blöcke               | Einrückung          | {}                 | {}                    |
-| Befehlsende          | Zeilenende          | ; (automatisch)    | ;                     |
-|                      |                     |                    |                       |
-| Geschwindigkeit      | Langsam (Cpython)   | Schnell (Node)     | Schnell               |
-| Vorinstalliert       | außer auf Windows   | Im Browser         | Auf Android           |
-| Web-Einsatz          | Backend             | Frondend + Backend | Backend               |
-| Scientific Computing | Ja (Numpy)          | Nein               | Nein                  |
-|                      |                     |                    |                       |
+| Aspekt               | Python                | Javascript         | Java                  |
+| -------------------- | --------------------- | ------------------ | --------------------- |
+| Typsystem            | Dynamisch Strikt      | Dynamisch schwach  | Statisch Strikt       |
+| Immutable            | Ja                    | nein               | möglich               |
+| Numerische Typen     | int, float, decimal   | number             | int, long, double ... |
+| Argumente            | strikt                | flexibel           | strikt                |
+| Geordnete Daten      | List, Tupel           | Array              | Array, List           |
+| Properties           | Descriptor Protocol   | `get`-Syntax       | manuell               |
+| Module               | Batteries Included    | Frameworks         | Batteries Included    |
+| Objektorientierung   | möglich               | teilweise          | forciert              |
+|                      |                       |                    |                       |
+| Blöcke               | Einrückung            | {}                 | {}                    |
+| Befehlsende          | Zeilenende            | ; (automatisch)    | ;                     |
+|                      |                       |                    |                       |
+| Geschwindigkeit      | Langsam (Cpython)     | Schnell (Node)     | Schnell               |
+| Vorinstalliert       | Linux und BSD (macos) | Im Browser         | Auf Android           |
+| Web-Einsatz          | Backend               | Frontend + Backend | Backend               |
+| Scientific Computing | Ja (Numpy)            | Nein               | Teilweise             |
+|                      |                       |                    |                       |
 
 
 
 
 ```mermaid
 graph TD
-s[Programmiersprachen]-->i[Imperative Sprachen]
-i-->p[Prozedurale Sprachen]
-i-->o[Objektorientierte Sprachen]
-s-->f[Funktionale Sprachen]
-s-->d[Deklarative Sprachen]
+s[Programmierparadigmen]-->i[Imperativ]
+i-->p["Prozedural<br>(C)"]-.-> Python
+i-->o["Objektorientiert<br>(Java)"]-.-> Python
+
+s-->f["Funktional<br>(Haskell)"]-.-> Python
+s-->d["Deklarativ<br>(SQL)"]
 ```
-Python kann sowohl prozedural als auch objektorientiert verwendet werden und enthält viele Aspekte der Funktionalen und Deklarativen Programmierung. 
+Python kann sowohl prozedural als auch objektorientiert verwendet werden und enthält viele Aspekte der Funktionalen Programmierung. 
 
 > The reason it has been so successful with Data Processing and Machine Learning tasks is that many of the libraries have adopted API's where you declare the operations you want to perform, and the library executes those declarations in an efficient manner in a lower level language. This leads to the best of both worlds, code thats easy to write in Python that runs as fast as code written in C++.
 > (https://www.benfrederickson.com/python-as-a-declarative-programming-language/)
@@ -165,7 +183,7 @@ f = open("demofile2.txt", "a")
 f.write("Now the file has more content!")
 f.close()
 
-#open and read the file after the appending:
+open and read the file after the appending:
 f = open("demofile2.txt", "r")
 print(f.read())
 ```
@@ -173,27 +191,27 @@ print(f.read())
 ### Pakete Module nutzen am Beispiel von os
 
 ```python
-# 1. Paket und dessen Klassen und Variablen aber ohne untergeordnete Module
-# sys als Name registrieren
+ 1. Paket und dessen Klassen und Variablen aber ohne untergeordnete Module
+ sys als Name registrieren
 import os 
 os.pathsep
 
-# Genau wie oben nur mit anderem Namen
+ Genau wie oben nur mit anderem Namen
 import os as ospaket
 ospaket.pathsep
 
-# pathsep ist kein Paket. Drum funktioniert das nicht.
+ pathsep ist kein Paket. Drum funktioniert das nicht.
 import os.pathsep
 
-# 1. importieret os
-# 2. registriert pathsep als Name (kein zugriff auf os möglich)
+ 1. importieret os
+ 2. registriert pathsep als Name (kein zugriff auf os möglich)
 from os import pathsep
 pathsep
 
-# Das Paket os enthält ein modul path
-# 1. importiert os
-# 2. importiert path
-# 3. registriert os als Name
+ Das Paket os enthält ein modul path
+ 1. importiert os
+ 2. importiert path
+ 3. registriert os als Name
 import os.path
 os.path.join("hallo","welt")
 ```
@@ -220,17 +238,17 @@ Ist die Virtualenv aktiviert, funktioniert obiger Befehl zur Installation.
 
 ### Pakete und Module selbst erstellen
 
-Ein Paket ist im Prinzip ein Ordner und ein Modul ist eine Python Datei. Ein Paket kann eine `__init__.py` enthalten. Diese wird geladen, wenn das paket geladen wird.
+Ein Paket ist im Prinzip ein Ordner und ein Modul ist eine Python Datei. Ein Paket kann eine `__init__.py` enthalten. Diese wird geladen, wenn das Paket geladen wird.
 
 #### Aufgabe
 
-1. Erstellen Sie ein Paket mit dem Namen b11lib ...
-2. ... und darin ein (leeres) Modul mit Namen visualization.
-3. Fügen Sie dem Paket(!) eine funkton whatis hinzu, die den Typ und den Inhalt einer Variable ausgibt.
+- Erstellen Sie ein Paket mit dem Namen b11lib ...
+- ... und darin ein (leeres) Modul mit Namen visualization.
+- Fügen Sie dem Paket(!) eine Funktoin `whatis` hinzu, die den Typ und den Inhalt einer Variable ausgibt.
 
 ## Stystemadministration mit Python
 
-### Starten von Python
+### Kommandos mit Python entwickeln
 
 Unter Unix kann mit einem Shebang `#!/usr/bin/env python3` kenntlich gemacht werden, dass es sich bei einer Datei um ein Python skript handelt. Somit reduziert sich der Aufruf zu `helloworld.py` wobei die Dateiendung weggelassen werden kann.
 
@@ -246,3 +264,4 @@ python C:\PathToPythonFile\somescript.py
 
 ## Quellen
 Vertleich von Python und Javascript: https://www.educba.com/python-vs-javascript/
+
